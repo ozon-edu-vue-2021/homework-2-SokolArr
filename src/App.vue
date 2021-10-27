@@ -1,9 +1,8 @@
 <template>
   <div id="app">
     <ul>
-      <!--      {{ itemsData.name }}-->
-      <tree-item
-          :item="itemsData"
+      <tree class="tree-list"
+            :tree-data="itemsData"
       />
     </ul>
 
@@ -11,17 +10,17 @@
 </template>
 
 <script>
-import TreeItem from "./components/TreeItem.vue";
+
 import itemsData from "./uttils/data2.json";
+import Tree from "./components/Tree.vue";
 
 export default {
   name: 'App',
-  components: {
-    TreeItem
-  },
+  components: {Tree},
   data() {
     return {
-      itemsData
+      itemsData,
+      Tree
     }
   }
 }
@@ -36,3 +35,4 @@ export default {
   font-size: 30px;
 }
 </style>
+

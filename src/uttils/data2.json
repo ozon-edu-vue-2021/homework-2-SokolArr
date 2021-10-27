@@ -1,6 +1,6 @@
 {
   "type": "directory",
-  "name": "node_modules",
+  "name": "root",
   "contents": [
     {
       "type": "directory",
