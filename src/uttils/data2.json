@@ -39,7 +39,7 @@
           "name": "compat-data",
           "contents": [
             {
-              "type": "file",
+              "type": "link",
               "name": "LICENSE"
             },
             {

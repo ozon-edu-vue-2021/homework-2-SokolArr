@@ -1,7 +1,7 @@
 <template>
   <div id="app">
+    <h2 style="text-align: center">My Tree</h2>
     <ul>
-      <!--      {{ itemsData.name }}-->
       <tree-item
           :item="itemsData"
       />
@@ -33,6 +33,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin-top: 60px;
-  font-size: 30px;
+  font-size: 27px;
 }
 </style>
