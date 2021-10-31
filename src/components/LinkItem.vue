@@ -1,8 +1,12 @@
 <template>
-  <div style="display: inline-flex; align-items: center">
+  <div
+      style="display: inline-flex; align-items: center"
+      
+  >
     <img
         src="../assets/link.png"
         class="linkIcon"
+        alt="img"
     />
     <p class="link-text">{{ linkName }}</p>
   </div>

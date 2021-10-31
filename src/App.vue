@@ -1,6 +1,16 @@
 <template>
   <div id="app">
     <h2 style="text-align: center">My Tree</h2>
+    Selected files:
+    <div
+        v-for="name in selectedItemsNames"
+        :key="name"
+        style="display: inline-flex"
+    >
+      {{ name }}, &nbsp;
+    </div>
+
+
     <ul>
       <tree-item
           :item="itemsData"
@@ -21,9 +31,28 @@ export default {
   },
   data() {
     return {
-      itemsData
+      itemsData,
+      selectedItemsNames: [],
     }
+  },
+  methods: {
+    updateSelected(item, isSelected) {
+      if (isSelected) {
+        console.log(item.name, `,selected: ${isSelected}`);
+        this.selectedItemsNames.push(item.name);
+      } else {
+        console.log(item.name, `,selected: ${isSelected}`);
+        this.selectedItemsNames = this.selectedItemsNames.filter(el => el !== item.name);
+      }
+    }
+  },
+  mounted() {
+    let vm = this;
+    this.$root.$on('selected', function (item, isSelected) {
+      vm.updateSelected(item, isSelected)
+    })
   }
+
 }
 </script>
 

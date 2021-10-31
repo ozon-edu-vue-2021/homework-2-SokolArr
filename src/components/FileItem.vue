@@ -1,8 +1,11 @@
 <template>
-  <div style="display: inline-flex; align-items: center">
+  <div
+      style="display: inline-flex; align-items: center"
+  >
     <img
         src="../assets/file.png"
         class="fileIcon"
+        alt="img"
     />
     <p class="file-text">{{ fileName }}</p>
   </div>
@@ -19,13 +22,6 @@ export default {
     selected: {
       type: Array,
       default: () => ([])
-    }
-  },
-  created() {
-  },
-  data() {
-    return {
-      selectedMap: {}
     }
   },
   methods: {}

@@ -1,21 +1,28 @@
 <template>
   <li>
-    <div class="file-wrapper" v-if="isFile">
+    <div
+        :class="className"
+        v-if="isFile"
+        @click="fileHandler(item)"
+    >
       <FileItem :file-name="item.name"/>
+
     </div>
 
-    <div class="link-wrapper" v-if="isLink">
+    <div class="link-wrapper"
+         v-if="isLink"
+    >
       <LinkItem :link-name="item.name"/>
     </div>
 
     <div class="folder-wrapper" v-if="isFolder" @click="toggle">
 
       <img
-          @click="toggle"
+
           src="../assets/folder.png"
           class="folderIcon"
           style="cursor: pointer"
-      />
+          alt="img"/>
 
       {{ item.name }}
     </div>
@@ -51,22 +58,21 @@ export default {
   },
   data() {
     return {
-      isOpen: false
+      isOpen: false,
+      className: 'file-wrapper',
+      isSelectedFlag: false
     };
   },
   computed: {
     isFolder() {
-      if (this.item.type === "directory") return true;
-      else return false;
+      return this.item.type === "directory";
     },
     isFile() {
-      if (this.item.type === "file") return true;
-      else return false;
+      return this.item.type === "file";
     },
     isLink() {
-      if (this.item.type === "link") return true;
-      else return false;
-    }
+      return this.item.type === "link";
+    },
   },
   methods: {
     toggle() {
@@ -74,6 +80,23 @@ export default {
         this.isOpen = !this.isOpen;
       }
     },
+    fileHandler(item) {
+      // let vm = this;
+      // this.$root.$on('is-selected', function (answEv) {
+      //   if (answEv) {
+      //
+      //   }
+      // });
+
+      if (this.isSelectedFlag) {
+        this.className = 'file-wrapper';
+      } else {
+        this.className = 'file-wrapper_isSelected'
+      }
+      this.isSelectedFlag = !this.isSelectedFlag;
+      this.$root.$emit('selected', item, this.isSelectedFlag)
+    },
+
   }
 }
 </script>
@@ -99,6 +122,7 @@ export default {
 .file-wrapper {
   display: flex;
   align-items: center;
+  margin: 2px;
 
 }
 
@@ -107,6 +131,22 @@ export default {
   border-radius: 10px;
   cursor: pointer;
 
+}
+
+.file-wrapper_isSelected {
+  display: flex;
+  align-items: center;
+  border: solid 2px #fbe74a;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #fbe74a;
+  margin: 2px;
+}
+
+.file-wrapper_isSelected:hover {
+  border: solid 2px #b2a636;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .link-wrapper {
