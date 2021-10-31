@@ -1,0 +1,88 @@
+{
+  "type": "directory",
+  "name": "node_modules",
+  "contents": [
+    {
+      "type": "directory",
+      "name": "@babel",
+      "contents": [
+        {
+          "type": "directory",
+          "name": "code-frame",
+          "contents": [
+            {
+              "type": "file",
+              "name": "LICENSE"
+            },
+            {
+              "type": "file",
+              "name": "README.md"
+            },
+            {
+              "type": "directory",
+              "name": "lib",
+              "contents": [
+                {
+                  "type": "file",
+                  "name": "index.js"
+                }
+              ]
+            },
+            {
+              "type": "file",
+              "name": "package.json"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "compat-data",
+          "contents": [
+            {
+              "type": "link",
+              "name": "LICENSE"
+            },
+            {
+              "type": "file",
+              "name": "corejs2-built-ins.js"
+            },
+            {
+              "type": "file",
+              "name": "corejs3-shipped-proposals.js"
+            },
+            {
+              "type": "directory",
+              "name": "data",
+              "contents": [
+                {
+                  "type": "file",
+                  "name": "corejs2-built-ins.json"
+                },
+                {
+                  "type": "file",
+                  "name": "corejs3-shipped-proposals.json"
+                },
+                {
+                  "type": "file",
+                  "name": "native-modules.json"
+                },
+                {
+                  "type": "file",
+                  "name": "overlapping-plugins.json"
+                },
+                {
+                  "type": "file",
+                  "name": "plugin-bugfixes.json"
+                },
+                {
+                  "type": "file",
+                  "name": "plugins.json"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
